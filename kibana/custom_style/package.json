@@ -1,0 +1,8 @@
+{
+  "name": "custom_style",
+  "version": "0.1.0",
+  "main": "index.js",
+  "kibana": {
+    "version": "6.4.1"
+  }
+}
