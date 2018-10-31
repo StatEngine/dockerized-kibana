@@ -6,6 +6,7 @@
   --server.host=$SERVER_HOST \
   --server.basePath=$SERVER_BASEPATH \
   --server.rewriteBasePath=false \
+  --xpack.reporting.encryptionKey: $REPORTING_KEY \
   --elasticsearch.username=$ELASTICSEARCH_KIBANA_USER \
   --elasticsearch.password=$ELASTICSEARCH_KIBANA_PASSWORD \
   --readonlyrest_kbn.custom_logout_link=$ROR_CUSTOM_LOGOUT_LINK \

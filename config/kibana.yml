@@ -110,9 +110,11 @@ tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
 # For X-Pack users: you may only leave monitoring on.
 # Don't add this if X-Pack is not installed at all
 xpack.graph.enabled: false
+xpack.apm.enabled: false
 xpack.ml.enabled: false
 xpack.monitoring.enabled: false
 xpack.security.enabled: false
 xpack.watcher.enabled: false
+xpack.reporting.enabled: true
 
 #elasticsearch.logQueries: true
