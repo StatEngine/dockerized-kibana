@@ -27,7 +27,7 @@ ENV ELASTICSEARCH_KIBANA_PASSWORD=kibana
 ENV REPORTING_KEY=abc123
 ENV ROR_CUSTOM_LOGOUT_LINK=https://statengine.io
 
-# Custom ROR plugin
+# Custom plugins
 COPY ${ROR_VERSION} /usr/share/kibana/${ROR_VERSION}
 
 # Custom favicons
@@ -55,6 +55,7 @@ COPY bin/docker-run.sh /usr/share/kibana/
 # Plugins
 RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
 RUN bin/kibana-plugin install file:///usr/share/kibana/${ROR_VERSION}
+RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.0.0/datasweet_formula-2.0.0_kibana-6.4.1.zip
 
 CMD /usr/share/kibana/docker-run.sh
 

@@ -115,6 +115,6 @@ xpack.ml.enabled: false
 xpack.monitoring.enabled: false
 xpack.security.enabled: false
 xpack.watcher.enabled: false
-xpack.reporting.enabled: true
+xpack.reporting.enabled: false
 
 #elasticsearch.logQueries: true
