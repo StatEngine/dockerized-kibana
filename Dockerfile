@@ -19,6 +19,9 @@ ENV ROR_VERSION=${ROR_VERSION}
 ARG THEME=nfors
 ENV THEME=${THEME}
 
+#ARG COOKIE_PASS=pv2PXhd5M6ILsa9WQw1wZ3u4QMSzrUjNMuBUV23pNy1nW
+#ENV COOKIE_PASS=${COOKIE_PASS}
+
 ENV SERVER_HOST=0.0.0.0
 ENV SERVER_BASEPATH=/_plugin/kibana
 ENV ELASTICSEARCH_URI=http://docker.for.mac.localhost:9200
@@ -56,7 +59,9 @@ COPY bin/docker-run.sh /usr/share/kibana/
 RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
 RUN bin/kibana-plugin install file:///usr/share/kibana/${ROR_VERSION}
 RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.0.0/datasweet_formula-2.0.0_kibana-6.4.1.zip
+RUN bin/kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v6.4.1/prelert_swimlane_vis-6.4.1.zip
 
 CMD /usr/share/kibana/docker-run.sh
 
 EXPOSE 5601
+
