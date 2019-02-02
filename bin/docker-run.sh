@@ -10,5 +10,5 @@
   --elasticsearch.password=$ELASTICSEARCH_KIBANA_PASSWORD \
   --readonlyrest_kbn.custom_logout_link=$ROR_CUSTOM_LOGOUT_LINK \
   --readonlyrest_kbn.jwt_query_param="jwt" \
-  #--readonlyrest_kbn.cookiePass=${COOKIE_PASS} \
+  --readonlyrest_kbn.cookiePass=${COOKIE_PASS} \
   --verbose
