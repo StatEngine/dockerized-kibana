@@ -118,3 +118,4 @@ xpack.watcher.enabled: false
 xpack.reporting.enabled: false
 
 #elasticsearch.logQueries: true
+#readonlyrest_kbn.whitelistedPaths: [".*/api/status$"]
