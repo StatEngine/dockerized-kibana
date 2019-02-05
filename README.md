@@ -4,8 +4,8 @@
 ```
 docker build \
 --build-arg THEME=nfors \
--t prominentedgestatengine/kibana:HEAD-b174f90-development \
--t prominentedgestatengine/public-kibana:HEAD-b174f90-development \
---no-cache
+-t prominentedgestatengine/nfors-kibana:HEAD-latest-development \
+--no-cache \
+.
 ```
 
