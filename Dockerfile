@@ -44,6 +44,10 @@ RUN sed -i "s/image\/svg+xml.*\");/image\/svg+xml;base64,$(cat /usr/share/kibana
 # Custom back button
 RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-content=\"'Back to home'\" onclick=\"window.location.replace('\/'); return false;\" icon=\"'plugins\/kibana\/assets\/logout.svg'\" label=\"'Back'\"><\/global-nav-link><global-nav-link class=\"attribution-logo\" onclick=\"window.open('https:\/\/statengine.io'); return false;\"><\/global-nav-link>/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.html;
 
+# HACK to remove popular errors, see https://github.com/wazuh/wazuh-kibana-app/pull/1085/commits/38fbae1bd92598c1eea91cd0ca4d672afe9e355c
+RUN sed -i 's|$scope.indexPattern.popularizeField(field, 1)|//$scope.indexPattern.popularizeField(field, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
+RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexPattern.popularizeField(columnName, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
+
 # Custom HTML title information
 RUN sed -i 's/title Kibana/title Dashboard/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
 
