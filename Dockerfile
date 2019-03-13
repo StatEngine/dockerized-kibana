@@ -11,9 +11,9 @@ COPY themes/${THEME}/styles/custom_style.less /kibana/custom_style/public/less/c
 
 RUN zip -r /custom_style.zip kibana
 
-FROM docker.elastic.co/kibana/kibana:6.4.1
+FROM docker.elastic.co/kibana/kibana:6.6.1
 
-ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.16.33_es6.4.1.zip
+ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.17.0_es6.6.1.zip
 ENV ROR_VERSION=${ROR_VERSION}
 
 ARG THEME=nfors
@@ -64,6 +64,7 @@ RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
 RUN bin/kibana-plugin install file:///usr/share/kibana/${ROR_VERSION}
 RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.0.0/datasweet_formula-2.0.0_kibana-6.4.1.zip
 RUN bin/kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v6.4.1/prelert_swimlane_vis-6.4.1.zip
+RUN bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/v1.0.0/enhanced-table-1.0.0_6.4.1.zip
 
 CMD /usr/share/kibana/docker-run.sh
 
