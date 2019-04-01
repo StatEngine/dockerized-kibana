@@ -11,9 +11,9 @@ COPY themes/${THEME}/styles/custom_style.less /kibana/custom_style/public/less/c
 
 RUN zip -r /custom_style.zip kibana
 
-FROM docker.elastic.co/kibana/kibana:6.6.1
+FROM docker.elastic.co/kibana/kibana:6.4.1
 
-ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.17.0_es6.6.1.zip
+ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.16.33_es6.4.1.zip
 ENV ROR_VERSION=${ROR_VERSION}
 
 ARG THEME=nfors
@@ -47,6 +47,9 @@ RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-co
 # HACK to remove popular errors, see https://github.com/wazuh/wazuh-kibana-app/pull/1085/commits/38fbae1bd92598c1eea91cd0ca4d672afe9e355c
 RUN sed -i 's|$scope.indexPattern.popularizeField(field, 1)|//$scope.indexPattern.popularizeField(field, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
 RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexPattern.popularizeField(columnName, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
+
+# Fix to add perceniltes/percentile ranks back to gauge
+RUN sed -i "s|'!std_dev', '!geo_centroid', '!percentiles', '!percentile_ranks',|'!std_dev', '!geo_centroid',|g" /usr/share/kibana/src/core_plugins/kbn_vislib_vis_types/public/gauge.js
 
 # Custom HTML title information
 RUN sed -i 's/title Kibana/title Dashboard/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
