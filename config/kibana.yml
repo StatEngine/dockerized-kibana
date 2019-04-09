@@ -122,3 +122,19 @@ xpack.reporting.enabled: true
 
 kibana.defaultAppId: 'dashboard'
 server.defaultRoute: '/app/kibana#/dashboards?_g=()'
+
+regionmap:
+  includeElasticMapsService: false
+  layers:
+     - name: "Census Tracts (VA)"
+       url: "https://s3.amazonaws.com/statengine-public-assets/geojson/51.geojson"
+       attribution: "https://github.com/arcee123/GIS_GEOJSON_CENSUS_TRACTS/"
+       fields:
+          - name: "GEOID"
+            description: "FIPS"
+     - name: "Census Tracts (WA)"
+       url: "https://s3.amazonaws.com/statengine-public-assets/geojson/51.geojson"
+       attribution: "https://github.com/arcee123/GIS_GEOJSON_CENSUS_TRACTS/"
+       fields:
+          - name: "GEOID"
+            description: "FIPS"
