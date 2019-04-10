@@ -11,5 +11,5 @@ docker build \
 ```
 ## Running
 ```
-docker run -p 5601:5601 prominentedgestatengine/nfors-kibana:HEAD-latest-development
+docker run -p 5601:5601 prominentedgestatengine/kibana-nfors:HEAD-latest-development
 ```
