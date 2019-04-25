@@ -122,6 +122,7 @@ xpack.reporting.enabled: true
 
 kibana.defaultAppId: 'dashboard'
 server.defaultRoute: '/app/kibana#/dashboards?_g=()'
+readonlyrest_kbn.session_timeout_minutes: 525600
 
 regionmap:
   includeElasticMapsService: false
