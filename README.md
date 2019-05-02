@@ -5,7 +5,7 @@ Obtain copy of readonly_rest_kbn_enterprise_<version>.zip and copy to the root o
 ```
 docker build \
 --build-arg THEME=nfors \
--t prominentedgestatengine/nfors-kibana:HEAD-latest-development \
+-t prominentedgestatengine/kibana-nfors:HEAD-latest-development \
 --no-cache \
 .
 ```

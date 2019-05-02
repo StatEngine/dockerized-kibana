@@ -10,4 +10,5 @@
   --elasticsearch.password=$ELASTICSEARCH_KIBANA_PASSWORD \
   --readonlyrest_kbn.custom_logout_link=$ROR_CUSTOM_LOGOUT_LINK \
   --readonlyrest_kbn.jwt_query_param="jwt" \
+  --readonlyrest_kbn.session_timeout_minutes=525600 \
   --verbose

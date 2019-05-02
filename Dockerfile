@@ -28,7 +28,7 @@ ENV ELASTICSEARCH_URI=http://docker.for.mac.localhost:9200
 ENV ELASTICSEARCH_KIBANA_USER=kibana
 ENV ELASTICSEARCH_KIBANA_PASSWORD=kibana
 ENV REPORTING_KEY=abc123
-ENV ROR_CUSTOM_LOGOUT_LINK=https://statengine.io
+ENV ROR_CUSTOM_LOGOUT_LINK=http://localhost:3000/
 
 # Custom plugins
 COPY ${ROR_VERSION} /usr/share/kibana/${ROR_VERSION}
@@ -42,7 +42,7 @@ COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
 RUN sed -i "s/image\/svg+xml.*\");/image\/svg+xml;base64,$(cat /usr/share/kibana/logo.b64)\");/g" /usr/share/kibana/src/ui/ui_render/views/chrome.jade /usr/share/kibana/src/ui/ui_render/views/ui_app.jade;
 
 # Custom back button
-RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-content=\"'Back to home'\" onclick=\"window.location.replace('\/'); return false;\" icon=\"'plugins\/kibana\/assets\/logout.svg'\" label=\"'Back'\"><\/global-nav-link><global-nav-link class=\"attribution-logo\" onclick=\"window.open('https:\/\/statengine.io'); return false;\"><\/global-nav-link>/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.html;
+RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-content=\"'Back to home'\" kbn-route=\"'\/logout'\" icon=\"'plugins\/kibana\/assets\/logout.svg'\" label=\"'Back'\"><\/global-nav-link><global-nav-link class=\"attribution-logo\" onclick=\"window.open('https:\/\/statengine.io'); return false;\"><\/global-nav-link>/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.html;
 
 # HACK to remove popular errors, see https://github.com/wazuh/wazuh-kibana-app/pull/1085/commits/38fbae1bd92598c1eea91cd0ca4d672afe9e355c
 RUN sed -i 's|$scope.indexPattern.popularizeField(field, 1)|//$scope.indexPattern.popularizeField(field, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
