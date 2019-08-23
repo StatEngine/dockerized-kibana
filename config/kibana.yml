@@ -124,7 +124,7 @@ kibana.defaultAppId: 'dashboard'
 server.defaultRoute: '/app/kibana#/dashboards?_g=()'
 
 regionmap:
-  includeElasticMapsService: false
+  includeElasticMapsService: true
   layers:
     - name: "Census Tracts (AK)"
       url: "https://s3.amazonaws.com/statengine-public-assets/geojson/SVI2016_US-AK.json"
