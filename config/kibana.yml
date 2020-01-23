@@ -67,7 +67,7 @@ elasticsearch.requestTimeout: 120000
 
 # List of Kibana client-side headers to send to Elasticsearch. To send *no* client-side
 # headers, set this value to [] (an empty list).
-elasticsearch.requestHeadersWhitelist: [ authorization, "X-Forwarded-User",  "x-se-fire-department-all" ]
+elasticsearch.requestHeadersWhitelist: [ authorization, "X-Forwarded-User",  "x-se-fire-department-all", ]
 
 # Header names and values that are sent to Elasticsearch. Any custom headers cannot be overwritten
 # by client-side headers, regardless of the elasticsearch.requestHeadersWhitelist configuration.
@@ -104,27 +104,40 @@ elasticsearch.requestHeadersWhitelist: [ authorization, "X-Forwarded-User",  "x-
 #i18n.defaultLocale: "en"
 
 # Map Options
-tilemap.options.maxZoom: 22
-tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+#tilemap.options.maxZoom: 22
+#tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 # For X-Pack users: you may only leave monitoring on.
 # Don't add this if X-Pack is not installed at all
-xpack.graph.enabled: false
 xpack.apm.enabled: false
+xpack.grokdebugger.enabled: false
+xpack.searchprofiler.enabled: false
+xpack.graph.enabled: false
+xpack.infra.enabled: false
 xpack.ml.enabled: false
 xpack.monitoring.enabled: false
 xpack.security.enabled: false
+xpack.spaces.enabled: false
 xpack.watcher.enabled: false
-xpack.reporting.enabled: true
+xpack.canvas.enabled: false
+xpack.maps.enabled: false
+xpack.uptime.enabled: false
+xpack.siem.enabled: false
 
-#elasticsearch.logQueries: true
-#readonlyrest_kbn.whitelistedPaths: [".*/api/status$"]
+# Enabled xpack settings
+xpack.reporting.enabled: true
 
 kibana.defaultAppId: 'dashboard'
 server.defaultRoute: '/app/kibana#/dashboards?_g=()'
 
-regionmap:
-  includeElasticMapsService: true
+readonlyrest_kbn.kibana_custom_js_inject: '$("#ror_user").text("Back to Control Center");$("#kibana-body > div > div.chrHeaderWrapper.hide-for-sharing > header > div > div.euiHeaderSection.euiHeaderSection--dontGrow.euiHeaderSection--left > div > a").attr("href", "https://statengine.io/home")'
+
+# Map options
+map.tilemap.options.maxZoom: 22
+map.tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+
+map.regionmap:
+  includeElasticMapsService: false
   layers:
     - name: "Census Tracts (AK)"
       url: "https://s3.amazonaws.com/statengine-public-assets/geojson/SVI2016_US-AK.json"
