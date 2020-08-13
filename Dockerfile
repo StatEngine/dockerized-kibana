@@ -13,7 +13,7 @@ RUN zip -r /custom_style.zip kibana
 
 FROM docker.elastic.co/kibana/kibana:7.8.1
 
-ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.16.33_es6.4.1.zip
+ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.21.0_es7.8.1.zip
 ENV ROR_VERSION=${ROR_VERSION}
 
 ARG THEME=nfors
