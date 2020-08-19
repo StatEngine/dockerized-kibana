@@ -51,7 +51,7 @@ COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
 # RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexPattern.popularizeField(columnName, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
 
 # Fix to add perceniltes/percentile ranks back to gauge
-RUN sed -i "s|'!std_dev', '!geo_centroid', '!percentiles', '!percentile_ranks',|'!std_dev', '!geo_centroid',|g" /usr/share/kibana/src/core_plugins/kbn_vislib_vis_types/public/gauge.js
+# RUN sed -i "s|'!std_dev', '!geo_centroid', '!percentiles', '!percentile_ranks',|'!std_dev', '!geo_centroid',|g" /usr/share/kibana/src/core_plugins/kbn_vislib_vis_types/public/gauge.js
 
 # Custom HTML title information
 # RUN sed -i 's/title Kibana/title Dashboard/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
