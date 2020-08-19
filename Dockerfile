@@ -39,9 +39,9 @@ ENV ROR_CUSTOM_LOGOUT_LINK=http://localhost:3000/workspaces
 COPY themes/${THEME}/favicons/* /usr/share/kibana/src/ui/public/assets/favicons/
 
 # Custom throbber
-#RUN sed -i 's/Kibana/Dashboard/g' /usr/share/kibana/src/core_plugins/kibana/translations/en.json
+# RUN sed -i 's/Kibana/Dashboard/g' /usr/share/kibana/src/core_plugins/kibana/translations/en.json
 COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
-RUN sed -i "s/image\/svg+xml.*\");/image\/svg+xml;base64,$(cat /usr/share/kibana/logo.b64)\");/g" /usr/share/kibana/src/ui/ui_render/views/chrome.jade /usr/share/kibana/src/ui/ui_render/views/ui_app.jade;
+# RUN sed -i "s/image\/svg+xml.*\");/image\/svg+xml;base64,$(cat /usr/share/kibana/logo.b64)\");/g" /usr/share/kibana/src/ui/ui_render/views/chrome.jade /usr/share/kibana/src/ui/ui_render/views/ui_app.jade;
 
 # Custom back button
 RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-content=\"'Back'\" kbn-route=\"'\/logout'\" icon=\"'plugins\/kibana\/assets\/logout.svg'\" label=\"'Back'\"><\/global-nav-link><global-nav-link class=\"attribution-logo\" onclick=\"window.open('https:\/\/statengine.io\/workspaces'); return false;\"><\/global-nav-link>/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.html;
@@ -54,7 +54,7 @@ RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexP
 RUN sed -i "s|'!std_dev', '!geo_centroid', '!percentiles', '!percentile_ranks',|'!std_dev', '!geo_centroid',|g" /usr/share/kibana/src/core_plugins/kbn_vislib_vis_types/public/gauge.js
 
 # Custom HTML title information
-RUN sed -i 's/title Kibana/title Dashboard/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
+# RUN sed -i 's/title Kibana/title Dashboard/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
 
 # Custom css plugin
 COPY --from=builder /custom_style.zip /usr/share/kibana/custom_style.zip
