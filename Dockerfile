@@ -35,9 +35,6 @@ ENV ELASTICSEARCH_KIBANA_PASSWORD=kibana
 ENV REPORTING_KEY=abc123
 ENV ROR_CUSTOM_LOGOUT_LINK=http://localhost:3000/workspaces
 
-# Custom plugins
-COPY ${ROR_VERSION} /usr/share/kibana/${ROR_VERSION}
-
 # Custom favicons
 COPY themes/${THEME}/favicons/* /usr/share/kibana/src/ui/public/assets/favicons/
 
