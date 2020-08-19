@@ -8,7 +8,7 @@ ENV THEME=${THEME}
 COPY plugins /tmp/plugins
 
 RUN chmod 755 -R /tmp/plugins \
-    && ls -l /tmp/plugins/readonlyrest-1.21.0_es7.8.1.zip
+    && ls -l /tmp/plugins/readonlyrest_kbn_enterprise-1.21.0_es7.8.1.zip
 
 COPY kibana /kibana
 
