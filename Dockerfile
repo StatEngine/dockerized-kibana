@@ -5,6 +5,8 @@ RUN apk add --no-cache zip
 ARG THEME=nfors
 ENV THEME=${THEME}
 
+RUN mkdir -p /tmp/plugins
+
 COPY plugins /tmp/plugins
 
 RUN chmod 755 -R /tmp/plugins \
