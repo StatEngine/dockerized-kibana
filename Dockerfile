@@ -58,7 +58,7 @@ COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
 
 # Custom css plugin
 COPY --from=builder /custom_style.zip /usr/share/kibana/custom_style.zip
-RUN sed -i "s/createAnchor('{{bundlePath}}\/commons.style.css')/createAnchor('{{bundlePath}}\/commons.style.css'),createAnchor('{{bundlePath}}\/custom_style.style.css')/g" /usr/share/kibana/src/ui/ui_render/bootstrap/template.js.hbs
+# RUN sed -i "s/createAnchor('{{bundlePath}}\/commons.style.css')/createAnchor('{{bundlePath}}\/commons.style.css'),createAnchor('{{bundlePath}}\/custom_style.style.css')/g" /usr/share/kibana/src/ui/ui_render/bootstrap/template.js.hbs
 
 # Run script and config
 COPY config/kibana.yml /usr/share/kibana/config/
