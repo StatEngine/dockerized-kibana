@@ -39,7 +39,7 @@ ENV ROR_CUSTOM_LOGOUT_LINK=http://localhost:3000/workspaces
 COPY themes/${THEME}/favicons/* /usr/share/kibana/src/ui/public/assets/favicons/
 
 # Custom throbber
-RUN sed -i 's/Kibana/Dashboard/g' /usr/share/kibana/src/core_plugins/kibana/translations/en.json
+#RUN sed -i 's/Kibana/Dashboard/g' /usr/share/kibana/src/core_plugins/kibana/translations/en.json
 COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
 RUN sed -i "s/image\/svg+xml.*\");/image\/svg+xml;base64,$(cat /usr/share/kibana/logo.b64)\");/g" /usr/share/kibana/src/ui/ui_render/views/chrome.jade /usr/share/kibana/src/ui/ui_render/views/ui_app.jade;
 
