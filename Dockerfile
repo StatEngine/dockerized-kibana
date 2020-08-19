@@ -47,8 +47,8 @@ COPY themes/${THEME}/logo.b64 /usr/share/kibana/logo.b64
 # RUN sed -i "s/<\/global-nav-link>/<\/global-nav-link><global-nav-link tooltip-content=\"'Back'\" kbn-route=\"'\/logout'\" icon=\"'plugins\/kibana\/assets\/logout.svg'\" label=\"'Back'\"><\/global-nav-link><global-nav-link class=\"attribution-logo\" onclick=\"window.open('https:\/\/statengine.io\/workspaces'); return false;\"><\/global-nav-link>/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.html;
 
 # HACK to remove popular errors, see https://github.com/wazuh/wazuh-kibana-app/pull/1085/commits/38fbae1bd92598c1eea91cd0ca4d672afe9e355c
-RUN sed -i 's|$scope.indexPattern.popularizeField(field, 1)|//$scope.indexPattern.popularizeField(field, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
-RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexPattern.popularizeField(columnName, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
+# RUN sed -i 's|$scope.indexPattern.popularizeField(field, 1)|//$scope.indexPattern.popularizeField(field, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
+# RUN sed -i 's|$scope.indexPattern.popularizeField(columnName, 1)|//$scope.indexPattern.popularizeField(columnName, 1)|g' /usr/share/kibana/src/core_plugins/kibana/public/discover/controllers/discover.js
 
 # Fix to add perceniltes/percentile ranks back to gauge
 RUN sed -i "s|'!std_dev', '!geo_centroid', '!percentiles', '!percentile_ranks',|'!std_dev', '!geo_centroid',|g" /usr/share/kibana/src/core_plugins/kbn_vislib_vis_types/public/gauge.js
