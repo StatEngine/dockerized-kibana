@@ -67,7 +67,7 @@ COPY config/kibana.yml /usr/share/kibana/config/
 COPY bin/docker-run.sh /usr/share/kibana/
 
 # Plugins
-RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
+# RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
 RUN bin/kibana-plugin install file:///tmp/plugins/${ROR_VERSION}
 RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.2.1/datasweet_formula-2.2.1_kibana-7.1.1.zip
 RUN bin/kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v7.1.1/prelert_swimlane_vis-7.1.1.zip
