@@ -18,8 +18,10 @@ ENV ROR_VERSION=${ROR_VERSION}
 
 COPY plugins /tmp/plugins/
 
-RUN chmod 755 -R /tmp/plugins \
-    && ls -l /tmp/plugins/${ROR_VERSION}
+#RUN chmod 755 -R /tmp/plugins \
+#    && ls -l /tmp/plugins/${ROR_VERSION}
+
+RUN ls -l /tmp/plugins
 
 ARG THEME=nfors
 ENV THEME=${THEME}
@@ -67,8 +69,8 @@ COPY bin/docker-run.sh /usr/share/kibana/
 # Plugins
 # RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
 RUN bin/kibana-plugin install file:///tmp/plugins/${ROR_VERSION}
-RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.2.1/datasweet_formula-2.2.1_kibana-7.1.1.zip
-RUN bin/kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v7.6.2/prelert_swimlane_vis-7.6.2.zip
+#RUN bin/kibana-plugin install https://github.com/datasweet/kibana-datasweet-formula/releases/download/v2.2.1/datasweet_formula-2.2.1_kibana-7.1.1.zip
+#RUN bin/kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v7.6.2/prelert_swimlane_vis-7.6.2.zip
 RUN bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/v1.9.2/enhanced-table-1.9.2_7.8.1.zip
 
 CMD /usr/share/kibana/docker-run.sh
