@@ -16,13 +16,6 @@ FROM docker.elastic.co/kibana/kibana:7.1.1
 ARG ROR_VERSION=readonlyrest_kbn_enterprise-1.21.0_es7.1.1.zip
 ENV ROR_VERSION=${ROR_VERSION}
 
-COPY plugins /tmp/plugins/
-
-#RUN chmod 755 -R /tmp/plugins \
-#    && ls -l /tmp/plugins/${ROR_VERSION}
-
-RUN ls -l /tmp/plugins
-
 ARG THEME=nfors
 ENV THEME=${THEME}
 
@@ -65,6 +58,8 @@ COPY --from=builder /custom_style.zip /usr/share/kibana/custom_style.zip
 # Run script and config
 COPY config/kibana.yml /usr/share/kibana/config/
 COPY bin/docker-run.sh /usr/share/kibana/
+
+COPY plugins /tmp/plugins/
 
 # Plugins
 # RUN bin/kibana-plugin install file:///usr/share/kibana/custom_style.zip
