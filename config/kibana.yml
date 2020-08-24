@@ -104,8 +104,8 @@ elasticsearch.requestHeadersWhitelist: [ authorization, "X-Forwarded-User",  "x-
 #i18n.defaultLocale: "en"
 
 # Map Options
-tilemap.options.maxZoom: 22
-tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+map.tilemap.options.maxZoom: 22
+map.tilemap.url: http://a.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 # For X-Pack users: you may only leave monitoring on.
 # Don't add this if X-Pack is not installed at all
